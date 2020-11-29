@@ -1965,24 +1965,3 @@ if os.getenv("EMAIL") and os.getenv("PASSWORD"):
 else:
     sys.stderr.write("ERROR: Please enter email and password in the \".env\" file.\n")
     sys.exit()
-
-
-async def ping_repl(url: str) -> None:
-  try:
-      async with aiohttp.ClientSession() as session:
-          async with session.request(
-                method='GET',
-                url=url
-            ):
-                pass
-  except:
-    pass
-
-async def ping_urls() -> None:
-    urls = [os.getenv("REPL_SLUG") + "." + os.getenv("REPL_OWNER") + ".repl.co", os.getenv("REPL_SLUG") + "--" + os.getenv("REPL_OWNER") + ".repl.co"]
-    while True:
-        for repl in urls:
-            asyncio.get_event_loop().create_task(ping_repl(repl))
-        await asyncio.sleep(1800)
-
-asyncio.get_event_loop().run_until_complete(ping_urls)
