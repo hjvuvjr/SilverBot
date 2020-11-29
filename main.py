@@ -81,7 +81,7 @@ def store_device_auth_details(email, details):
 
 async def get_authorization_code():
     while True:
-        response = await aioconsole.ainput("Go to https://bit.ly/epicauthcode and sign in as "  + os.getenv("EMAIL") + " and enter the response: ")
+        response = await aioconsole.ainput("Go to https://rebrand.ly/authcode and sign in as "  + os.getenv("EMAIL") + " and enter the response: ")
         if "redirectUrl" in response:
             response = json.loads(response)
             if "?code" not in response["redirectUrl"]:
@@ -126,19 +126,19 @@ class SilverBot(commands.Bot):
         self.fortnite_api = FortniteAPIAsync.APIClient()
         self.loop = asyncio.get_event_loop()
 
-        self.default_skin = "CID_028_Athena_Commando_F"
+        self.default_skin = "CID_069_Athena_Commando_F_PinkBear"
         self.default_backpack = "BID_023_Pinkbear"
         self.default_pickaxe = "Pickaxe_Lockjaw"
-        self.banner = "otherbanner28"
+        self.banner = "INFLUENCERBANNER57"
         self.banner_colour = "defaultcolor15"
-        self.default_level = 999
+        self.default_level = 9999
         self.default_bp_tier = 999999999
-        self.default_emote = "EID_JustHome"
+        self.default_emote = "eid_celebration"
 
         self.sanic_app = sanic_app
         self.server = server
-        self.welcome_message = "Hey {DISPLAY_NAME} Join Our Discord Server To Get Your OWN Fortnite Lobby Bot!"
-        self.whisper_message = "Hey {DISPLAY_NAME} Join Our Discord Server To Get Your OWN Fortnite Lobby Bot!"
+        self.welcome_message = "Hey {DISPLAY_NAME} Join Our Discord Server To Get Your OWN Free Fortnite Lobby Bot!"
+        self.whisper_message = "Hey {DISPLAY_NAME} Join Our Discord Server To Get Your OWN Free Fortnite Lobby Bot!"
 
     async def set_and_update_member_prop(self, schema_key: str, new_value: Any) -> None:
         prop = {schema_key: self.party.me.meta.set_prop(schema_key, new_value)}
